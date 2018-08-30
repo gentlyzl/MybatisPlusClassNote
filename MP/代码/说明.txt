@@ -1,0 +1,5 @@
+MPClass			BaseMapper的使用以及EntityWapper的使用
+MPClass1		AR模式 ActiveRecord(活动记录)的使用 
+MPClass2		代码生成器的使用
+MPClass3		插件(分页插件,乐观锁插件,执行分析插件,性能分析插件)的使用
+MPClass4		自动填充字段的使用

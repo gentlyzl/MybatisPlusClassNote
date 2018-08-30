@@ -1,0 +1,27 @@
+// xxxMapper > MapperProxy > sqlSession > sqlSessionFactory > configuration > mappedStatement > value > sqlSource > sqlSource > sql
+启动时就会把baseMapper的每一个方法的每一个sql语句保存到configuration中的mappedStatement里面
+MP在启动就会挨个分析xxxMapper中的方法，并且将对应的SQL语句处理好，保存到configuration对象的mappedStatement中
+本质：启动时实例化xxxMapper，通过addMappedStatement，将每一个sql语句添加到mappedStatement里面
+
+AutoSqlInjector:自动装配sql的类
+SqlMethod:枚举对象，MP支持的sql方法，定义模板sql语句
+TableInfo:数据库表的反射信息，获取数据表的相关信息
+SqlSource:sql语句的处理对象
+MapperBuilderAssistant:用于缓存，sql参数处理，查询结果集的处理等，将每一个mappedStatement添加到Configuration中的mappedStatement中
+
+AR操作的本质
+获取sqlsession对象，对mybatis底层代码进行封装类似语法糖
+语法糖：计算机语言中添加某终语法，这种语言对原本语言的功能没有影响，可以方便开发者的使用，避免出错的机会，让代码可读性更好
+
+mybatis插件
+configuration 
+mappedStatement 
+
+mybatis4大对象
+Executor 执行器对象
+StatemeHandler 编译器对象
+ParameterHandler 参数处理器对象
+ResultSetHandler结果集处理器对象
+
+插件原理
+在创建时，都会被interceptorChain.pluginAll(),生成代理对象,如果没有插件，那就不会生成
